@@ -20,9 +20,14 @@ const searchFood = async () => {
         //load data
         // console.log(url);
 
-        const res = await fetch(url);
-        const data = await res.json();
-        displaySearchResult(data.meals);
+        try {
+            const res = await fetch(url);
+            const data = await res.json();
+            displaySearchResult(data.meals);
+        }
+        catch (error) {
+            console.log(error);
+        }
 
         // fetch(url)
         //     .then(res => res.json())

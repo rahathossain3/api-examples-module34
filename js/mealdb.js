@@ -1,9 +1,14 @@
+document.getElementById('error-message').style.display = 'none';
 const searchFood = () => {
     const searchField = document.getElementById('search-field');    //get input data
     const searchText = searchField.value;
     // console.log(searchText);
     //clear data
     searchField.value = '';     //-------clear input field
+
+    //error hendling
+    document.getElementById('error-message').style.display = 'none';
+
     //if else own work-------------
     const emptyField = document.getElementById('ownWork');
     if (searchText == '') {
@@ -23,11 +28,16 @@ const searchFood = () => {
             .then(res => res.json())
             .then(data => displaySearchResult(data.meals))  //call display function
             //error hendling
-            .catch(error => console.log(error))
-
+            .catch(error => displayError(error))
     }
+}
+
+//error hendling
+const displayError = error => {
+    document.getElementById('error-message').style.display = 'block';
 
 }
+
 
 const displaySearchResult = meals => {
     const searchResult = document.getElementById('search-result');      // ger parent node
