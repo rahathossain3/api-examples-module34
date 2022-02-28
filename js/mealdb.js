@@ -29,9 +29,9 @@ const searchFood = () => {
 
 const displaySearchResult = meals => {
     const searchResult = document.getElementById('search-result');      // ger parent node
-
-    // searchResult.innerHTML = '';
-    searchResult.textContent = '';
+    console.log(meals);
+    searchResult.innerHTML = '';
+    // searchResult.textContent = '';
     //if else own work----------------
     const emptyField = document.getElementById('ownWork');
     if (meals == null) {
